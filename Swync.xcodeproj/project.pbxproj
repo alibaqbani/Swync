@@ -12,7 +12,7 @@
 		AD413A7521BABE1C00798D01 /* SwyncObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD413A7421BABE1C00798D01 /* SwyncObject.swift */; };
 		AD74423A21B655DA0087A3A0 /* Swync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD74423021B655DA0087A3A0 /* Swync.framework */; };
 		AD74423F21B655DA0087A3A0 /* SwyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74423E21B655DA0087A3A0 /* SwyncTests.swift */; };
-		AD74424121B655DA0087A3A0 /* MonoSync.h in Headers */ = {isa = PBXBuildFile; fileRef = AD74423321B655DA0087A3A0 /* MonoSync.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD74424121B655DA0087A3A0 /* Swync.h in Headers */ = {isa = PBXBuildFile; fileRef = AD74423321B655DA0087A3A0 /* Swync.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AD74424B21B656CD0087A3A0 /* Swync.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74424A21B656CD0087A3A0 /* Swync.swift */; };
 		AD74424F21B683AD0087A3A0 /* MockDataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74424E21B683AD0087A3A0 /* MockDataContext.swift */; };
 		AD74425121B68AD60087A3A0 /* MockUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74425021B68AD60087A3A0 /* MockUserModel.swift */; };
@@ -33,7 +33,7 @@
 		AD413A7221BAB71E00798D01 /* SwyncContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyncContext.swift; sourceTree = "<group>"; };
 		AD413A7421BABE1C00798D01 /* SwyncObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyncObject.swift; sourceTree = "<group>"; };
 		AD74423021B655DA0087A3A0 /* Swync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Swync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD74423321B655DA0087A3A0 /* MonoSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonoSync.h; sourceTree = "<group>"; };
+		AD74423321B655DA0087A3A0 /* Swync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swync.h; sourceTree = "<group>"; };
 		AD74423421B655DA0087A3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD74423921B655DA0087A3A0 /* SwyncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwyncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD74423E21B655DA0087A3A0 /* SwyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwyncTests.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		AD74423221B655DA0087A3A0 /* Swync */ = {
 			isa = PBXGroup;
 			children = (
-				AD74423321B655DA0087A3A0 /* MonoSync.h */,
+				AD74423321B655DA0087A3A0 /* Swync.h */,
 				AD74423421B655DA0087A3A0 /* Info.plist */,
 				AD74424A21B656CD0087A3A0 /* Swync.swift */,
 				AD413A7021BAB6FB00798D01 /* SwyncOperation.swift */,
@@ -111,7 +111,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD74424121B655DA0087A3A0 /* MonoSync.h in Headers */,
+				AD74424121B655DA0087A3A0 /* Swync.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
