@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MonoSync.xcodeproj">
+      location = "self:/Users/alibaqbani/Downloads/MonoSync/Swync.xcodeproj">
    </FileRef>
 </Workspace>

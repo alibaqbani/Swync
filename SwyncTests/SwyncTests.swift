@@ -1,6 +1,6 @@
 //
-//  MonoSyncTests.swift
-//  MonoSyncTests
+//  SwyncTests.swift
+//  SwyncTests
 //
 //  Created by Ali Baqbani on 12/4/18.
 //  Copyright © 2018 Ali Baqbani. All rights reserved.
@@ -8,9 +8,9 @@
 
 import XCTest
 import CoreData
-@testable import MonoSync
+@testable import Swync
 
-class MonoSyncTests: XCTestCase {
+class SwyncTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -28,12 +28,12 @@ class MonoSyncTests: XCTestCase {
     func testSync() {
         
         let context = MockDataContext()
-        let sync = MonoSync(context: context)
+        let sync = Swync(context: context)
         sync.mode = .daily
         sync.progressive = false
         sync.continueOnError = false
         
-        sync.perform { source -> MonoSyncModel in
+        sync.perform { source -> SwyncModel in
         }
         
 //        try! sync.perform(with: ["username": "test"], target: User.self)

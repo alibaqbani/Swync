@@ -1,6 +1,6 @@
 //
-//  MonoSync.swift
-//  MonoSync
+//  Swync.swift
+//  Swync
 //
 //  Created by Ali Baqbani on 12/4/18.
 //  Copyright © 2018 Ali Baqbani. All rights reserved.
@@ -8,17 +8,17 @@
 
 import Foundation
 
-protocol MonoSyncProtocol {
-    init(context: MonoSyncContextProtocol)
+protocol SwyncProtocol {
+    init(context: SwyncContextProtocol)
     
-    func queue(operation: MonoSyncOperationProtocol)
+    func queue(operation: SwyncOperationProtocol)
     
     func perform()
 }
 
-final class MonoSyncService: MonoSyncProtocol {
+final class SwyncService: SwyncProtocol {
     
-    enum MonoSyncMode {
+    enum SwyncMode {
         case halfHour
         case hourly
         case daily
@@ -26,28 +26,28 @@ final class MonoSyncService: MonoSyncProtocol {
         case monthly
     }
     
-    var mode: MonoSyncMode = .hourly
+    var mode: SwyncMode = .hourly
     var progressive: Bool = false
     var continueOnError: Bool = false
     
-    private var context: MonoSyncContextProtocol
-    private lazy var operations: [MonoSyncOperationProtocol] = {
-        return [MonoSyncOperationProtocol]()
+    private var context: SwyncContextProtocol
+    private lazy var operations: [SwyncOperationProtocol] = {
+        return [SwyncOperationProtocol]()
     }()
     
-    private lazy var queue: MonoSyncDispatchQueue = {
-        return MonoSyncDispatchQueue(label: "mono-sync-dispatch-queue")
+    private lazy var queue: SwyncDispatchQueue = {
+        return SwyncDispatchQueue(label: "swync-dispatch-queue")
     }()
     
-    init(context: MonoSyncContextProtocol) {
+    init(context: SwyncContextProtocol) {
         self.context = context
     }
     
-    func queue(operation: MonoSyncOperationProtocol) {
-        let op = MonoSyncOperation2(op: operation)
+    func queue(operation: SwyncOperationProtocol) {
+        let op = SwyncOperation2(op: operation)
         OperationQueue.main.addOperation(op)
         
-        let dispatchQueue = DispatchQueue.init(label: "mono-sync-dispatch-queue")
+        let dispatchQueue = DispatchQueue.init(label: "swync-dispatch-queue")
         dispatchQueue.async {
             operation.operate({ (result) in
                 switch result {
@@ -68,7 +68,7 @@ final class MonoSyncService: MonoSyncProtocol {
     }
 }
 
-fileprivate class MonoSyncDispatchQueue {
+fileprivate class SwyncDispatchQueue {
     
     let dispatchQueue: DispatchQueue
     
@@ -76,20 +76,20 @@ fileprivate class MonoSyncDispatchQueue {
         self.dispatchQueue = DispatchQueue(label: label)
     }
     
-    func add(operation: MonoSyncOperationProtocol) {
+    func add(operation: SwyncOperationProtocol) {
         
     }
 }
 
-fileprivate class MonoSyncMapper {
+fileprivate class SwyncMapper {
     
 }
 
-class MonoSyncOperation2: Operation {
+class SwyncOperation2: Operation {
     
-    let op: MonoSyncOperationProtocol
+    let op: SwyncOperationProtocol
     
-    init(op: MonoSyncOperationProtocol) {
+    init(op: SwyncOperationProtocol) {
         self.op = op
     }
     
@@ -100,7 +100,7 @@ class MonoSyncOperation2: Operation {
     }
 }
 
-class MonoSyncOperation3: Operation {
+class SwyncOperation3: Operation {
     
     let op: (() -> OperationResult)
     

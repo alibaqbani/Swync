@@ -1,21 +1,21 @@
 //
 //  MockDataContext.swift
-//  MonoSyncTests
+//  SwyncTests
 //
 //  Created by Ali Baqbani on 12/4/18.
 //  Copyright © 2018 Ali Baqbani. All rights reserved.
 //
 
 import Foundation
-@testable import MonoSync
+@testable import Swync
 
-class MockDataContext: MonoSyncContextProtocol{
+class MockDataContext: SwyncContextProtocol{
     
     init() {
         
     }
     
-    func persist(_ model: MonoSyncModel) throws {
+    func persist(_ model: SwyncModel) throws {
         
     }
 }
