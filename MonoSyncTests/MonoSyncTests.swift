@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CoreData
 @testable import MonoSync
 
 class MonoSyncTests: XCTestCase {
@@ -23,6 +24,20 @@ class MonoSyncTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    func testSync() {
+        
+        let context = MockDataContext()
+        let sync = MonoSync(context: context)
+        sync.mode = .daily
+        sync.progressive = false
+        sync.continueOnError = false
+        
+        sync.perform { source -> MonoSyncModel in
+        }
+        
+//        try! sync.perform(with: ["username": "test"], target: User.self)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.
@@ -30,5 +45,4 @@ class MonoSyncTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

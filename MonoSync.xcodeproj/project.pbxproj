@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD413A7121BAB6FB00798D01 /* MonoSyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD413A7021BAB6FB00798D01 /* MonoSyncOperation.swift */; };
+		AD413A7321BAB71E00798D01 /* MonoSyncContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD413A7221BAB71E00798D01 /* MonoSyncContext.swift */; };
+		AD413A7521BABE1C00798D01 /* MonoSyncObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD413A7421BABE1C00798D01 /* MonoSyncObject.swift */; };
 		AD74423A21B655DA0087A3A0 /* MonoSync.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD74423021B655DA0087A3A0 /* MonoSync.framework */; };
 		AD74423F21B655DA0087A3A0 /* MonoSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74423E21B655DA0087A3A0 /* MonoSyncTests.swift */; };
 		AD74424121B655DA0087A3A0 /* MonoSync.h in Headers */ = {isa = PBXBuildFile; fileRef = AD74423321B655DA0087A3A0 /* MonoSync.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD74424B21B656CD0087A3A0 /* MonoSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74424A21B656CD0087A3A0 /* MonoSync.swift */; };
+		AD74424F21B683AD0087A3A0 /* MockDataContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74424E21B683AD0087A3A0 /* MockDataContext.swift */; };
+		AD74425121B68AD60087A3A0 /* MockUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74425021B68AD60087A3A0 /* MockUserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +29,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD413A7021BAB6FB00798D01 /* MonoSyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoSyncOperation.swift; sourceTree = "<group>"; };
+		AD413A7221BAB71E00798D01 /* MonoSyncContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoSyncContext.swift; sourceTree = "<group>"; };
+		AD413A7421BABE1C00798D01 /* MonoSyncObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoSyncObject.swift; sourceTree = "<group>"; };
 		AD74423021B655DA0087A3A0 /* MonoSync.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MonoSync.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD74423321B655DA0087A3A0 /* MonoSync.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonoSync.h; sourceTree = "<group>"; };
 		AD74423421B655DA0087A3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD74423921B655DA0087A3A0 /* MonoSyncTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonoSyncTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD74423E21B655DA0087A3A0 /* MonoSyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoSyncTests.swift; sourceTree = "<group>"; };
 		AD74424021B655DA0087A3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD74424A21B656CD0087A3A0 /* MonoSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonoSync.swift; sourceTree = "<group>"; };
+		AD74424E21B683AD0087A3A0 /* MockDataContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataContext.swift; sourceTree = "<group>"; };
+		AD74425021B68AD60087A3A0 /* MockUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +85,10 @@
 			children = (
 				AD74423321B655DA0087A3A0 /* MonoSync.h */,
 				AD74423421B655DA0087A3A0 /* Info.plist */,
+				AD74424A21B656CD0087A3A0 /* MonoSync.swift */,
+				AD413A7021BAB6FB00798D01 /* MonoSyncOperation.swift */,
+				AD413A7221BAB71E00798D01 /* MonoSyncContext.swift */,
+				AD413A7421BABE1C00798D01 /* MonoSyncObject.swift */,
 			);
 			path = MonoSync;
 			sourceTree = "<group>";
@@ -82,6 +98,8 @@
 			children = (
 				AD74423E21B655DA0087A3A0 /* MonoSyncTests.swift */,
 				AD74424021B655DA0087A3A0 /* Info.plist */,
+				AD74424E21B683AD0087A3A0 /* MockDataContext.swift */,
+				AD74425021B68AD60087A3A0 /* MockUserModel.swift */,
 			);
 			path = MonoSyncTests;
 			sourceTree = "<group>";
@@ -148,6 +166,7 @@
 				TargetAttributes = {
 					AD74422F21B655DA0087A3A0 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					AD74423821B655DA0087A3A0 = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +213,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD413A7521BABE1C00798D01 /* MonoSyncObject.swift in Sources */,
+				AD74424B21B656CD0087A3A0 /* MonoSync.swift in Sources */,
+				AD413A7121BAB6FB00798D01 /* MonoSyncOperation.swift in Sources */,
+				AD413A7321BAB71E00798D01 /* MonoSyncContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +225,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD74423F21B655DA0087A3A0 /* MonoSyncTests.swift in Sources */,
+				AD74425121B68AD60087A3A0 /* MockUserModel.swift in Sources */,
+				AD74424F21B683AD0087A3A0 /* MockDataContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +366,7 @@
 		AD74424521B655DA0087A3A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -357,6 +383,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alibaq.MonoSync;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,6 +392,7 @@
 		AD74424621B655DA0087A3A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -389,6 +417,7 @@
 		AD74424821B655DA0087A3A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MonoSyncTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -406,6 +435,7 @@
 		AD74424921B655DA0087A3A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MonoSyncTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
