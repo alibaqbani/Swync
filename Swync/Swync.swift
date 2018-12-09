@@ -18,15 +18,6 @@ protocol SwyncProtocol {
 
 final class SwyncService: SwyncProtocol {
     
-    enum SwyncMode {
-        case halfHour
-        case hourly
-        case daily
-        case weekly
-        case monthly
-    }
-    
-    var mode: SwyncMode = .hourly
     var progressive: Bool = false
     var continueOnError: Bool = false
     
@@ -44,27 +35,28 @@ final class SwyncService: SwyncProtocol {
     }
     
     func queue(operation: SwyncOperationProtocol) {
-        let op = SwyncOperation2(op: operation)
-        OperationQueue.main.addOperation(op)
+        var operation = operation
+        operation.completion = { [unowned self] result in
+            self.handle(result: result)
+        }
         
-        let dispatchQueue = DispatchQueue.init(label: "swync-dispatch-queue")
-        dispatchQueue.async {
-            operation.operate({ (result) in
-                switch result {
-                case .success(let object):
-                    break
-                case .failed(_): break
-                }
-            })
+        operations.append(operation)
+//        handle(operation: operation)
+    }
+    
+    private func handle(result: OperationResult) {
+        switch result {
+        case .failed(let error):
+            print(error)
+            break
+        case .success(let value):
+            print(value)
+            break
         }
     }
     
-    func queue(operation: @escaping (() -> OperationResult)) {
-        
-    }
-    
     func perform() {
-        
+        queue.add(operations: operations)
     }
 }
 
@@ -73,42 +65,30 @@ fileprivate class SwyncDispatchQueue {
     let dispatchQueue: DispatchQueue
     
     init(label: String) {
-        self.dispatchQueue = DispatchQueue(label: label)
+        self.dispatchQueue = DispatchQueue(label: label, qos: .background, attributes: [.concurrent])
+    }
+    
+    func add(operations: [SwyncOperationProtocol]) {
+        operations.forEach({ executeAsync($0.execute) })
     }
     
     func add(operation: SwyncOperationProtocol) {
+        executeAsync(operation: operation)
+    }
+    
+    private func executeAsync(operation: SwyncOperationProtocol) {
+        let dispatchWorkItem = DispatchWorkItem(block: operation.execute)
+        dispatchQueue.async(execute: dispatchWorkItem)
         
+        dispatchQueue.async {
+            operation.execute()
+        }
+    }
+    
+    private func executeAsync(_ closure: @escaping (() -> Void)) {
+        dispatchQueue.async {
+            closure()
+        }
     }
 }
 
-fileprivate class SwyncMapper {
-    
-}
-
-class SwyncOperation2: Operation {
-    
-    let op: SwyncOperationProtocol
-    
-    init(op: SwyncOperationProtocol) {
-        self.op = op
-    }
-    
-    override func main() {
-//        op.operate { result in
-//
-//        }
-    }
-}
-
-class SwyncOperation3: Operation {
-    
-    let op: (() -> OperationResult)
-    
-    init(op: @escaping (() -> OperationResult)) {
-        self.op = op
-    }
-    
-    override func main() {
-        op()
-    }
-}

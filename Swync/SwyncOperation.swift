@@ -10,20 +10,74 @@ import Foundation
 
 enum OperationResult {
     case success(SwyncObjectProtocol)
-    case failed(Error)
+    case failed(Error?)
+}
+
+enum SwyncOperationState {
+    case idle
+    case executing
+    case finished
+    case canceled
 }
 
 protocol SwyncOperationProtocol {
     
     typealias Completion = ((OperationResult) -> Void)
     
-    func operate(_ completion: @escaping Completion)
+    var state: SwyncOperationState { get }
+    
+    var completion: Completion? { get set }
+    
+    func execute()
+    
+    func cancel()
+}
+
+internal class InternalSwyncOperation {
+    
+    let operation: SwyncOperation
+    
+    init(operation: SwyncOperation) {
+        self.operation = operation
+    }
 }
 
 class SwyncOperation: SwyncOperationProtocol {
-    var completionHandler: SwyncOperation.Completion?
     
-    func operate(_ completion: @escaping Completion) {
+    internal(set) var state: SwyncOperationState = .idle
+    
+    var completion: Completion?
+    
+    init() {
+    }
+    
+    func execute() {
+        state = .executing
+        if let completion = completion {
+            completion(.failed(nil))
+        }
+    }
+    
+    func cancel() {
         
     }
 }
+
+protocol SwyncCancelable {
+    
+}
+
+protocol OperationWrapper {
+    associatedtype R
+    
+    func execute() -> R
+}
+
+struct OperationWrapper2<T> {
+    typealias R = T
+    
+    init(_ closure: () -> T) {
+        
+    }
+}
+

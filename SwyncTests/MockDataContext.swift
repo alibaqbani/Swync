@@ -15,7 +15,7 @@ class MockDataContext: SwyncContextProtocol{
         
     }
     
-    func persist(_ model: SwyncModel) throws {
-        
-    }
+//    func persist(_ model: SwyncModel) throws {
+//        
+//    }
 }

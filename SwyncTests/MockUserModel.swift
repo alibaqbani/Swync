@@ -9,12 +9,12 @@
 import Foundation
 @testable import Swync
 
-class User: SwyncModel {
-    
-    var username: String?
-    
-    required init(_ value: Any) {
-        let json = value as! [String: Any]
-        username = json["username"] as? String
-    }
-}
+//class User: SwyncModel {
+//    
+//    var username: String?
+//    
+//    required init(_ value: Any) {
+//        let json = value as! [String: Any]
+//        username = json["username"] as? String
+//    }
+//}

@@ -27,16 +27,26 @@ class SwyncTests: XCTestCase {
     
     func testSync() {
         
+        Operation<T>.create(closure).execute(on: queue).complete
+        
         let context = MockDataContext()
-        let sync = Swync(context: context)
-        sync.mode = .daily
-        sync.progressive = false
-        sync.continueOnError = false
+        let swync = SwyncService(context: context)
         
-        sync.perform { source -> SwyncModel in
-        }
+        let operation1 = SwyncOperation()
+        let operation2 = SwyncOperation()
+        let operation3 = SwyncOperation()
         
-//        try! sync.perform(with: ["username": "test"], target: User.self)
+        XCTAssertTrue(operation1.state == .idle, "Operation initial state is idle")
+        XCTAssertTrue(operation2.state == .idle, "Operation initial state is idle")
+        XCTAssertTrue(operation3.state == .idle, "Operation initial state is idle")
+
+        swync.queue(operation: operation1)
+        swync.queue(operation: operation2)
+        swync.queue(operation: operation3)
+
+        swync.perform()
+        
+//        XCTAssertTrue(operation.state == .executing, "Operation state is executing")
     }
 
     func testPerformanceExample() {
